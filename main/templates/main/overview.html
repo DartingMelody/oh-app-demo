@@ -24,7 +24,11 @@
             visit <a href="{{ oh_proj_page }}">this project's page on Open Humans </a>
             to see any data you've previously uploaded.
           </p>
+          
         </div>
+        <form action="{% url 'openhumans:delete_connection'  %}" method="post">{% csrf_token %}
+          <button type="submit">Delete Connection!</button>
+        </form>
       </div>
 
 {% endblock %}
