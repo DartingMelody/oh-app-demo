@@ -15,7 +15,6 @@ import ohapi
 import requests
 from openhumans.models import OpenHumansMember
 
-# from .helpers import oh_code_to_member, oh_client_info
 
 logger = logging.getLogger(__name__)
 
