@@ -13,6 +13,7 @@ from django.utils.safestring import mark_safe
 
 import ohapi
 import requests
+from openhumans.models import OpenHumansMember
 
 # from .helpers import oh_code_to_member, oh_client_info
 
@@ -105,9 +106,7 @@ def index(request):
     """
     Starting page for app.
     """
-    # auth_url = get_auth_url()
-    oh_member = request.user.openhumansmember
-    auth_url = oh_member.get_auth_url()
+    auth_url = OpenHumansMember.get_auth_url()
     if not auth_url:
         messages.info(request,
                       mark_safe(
