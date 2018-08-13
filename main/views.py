@@ -15,7 +15,7 @@ import ohapi
 import requests
 
 from .helpers import oh_code_to_member, oh_client_info
-
+# try 
 logger = logging.getLogger(__name__)
 
 OH_BASE_URL = settings.OPENHUMANS_OH_BASE_URL
