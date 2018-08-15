@@ -91,16 +91,6 @@ def upload_file_to_oh(oh_member, filehandle, metadata):
                                'Bad response when completing upload.')
 
 
-# def get_auth_url():
-#     if settings.OPENHUMANS_CLIENT_ID and settings.OPENHUMANS_REDIRECT_URI:
-#         auth_url = ohapi.api.oauth2_auth_url(
-#             client_id=settings.OPENHUMANS_CLIENT_ID,
-#             redirect_uri=settings.OPENHUMANS_REDIRECT_URI)
-#     else:
-#         auth_url = ''
-#     return auth_url
-
-
 def index(request):
     """
     Starting page for app.
@@ -124,33 +114,6 @@ def overview(request):
                    'oh_member': oh_member}
         return render(request, 'main/overview.html', context=context)
     return redirect('index')
-
-
-# def login_member(request):
-#     code = request.GET.get('code', '')
-#     try:
-#         oh_member = oh_code_to_member(code=code)
-#     except Exception:
-#         oh_member = None
-#     if oh_member:
-#         # Log in the user.
-#         user = oh_member.user
-#         login(request, user,
-#               backend='django.contrib.auth.backends.ModelBackend')
-#
-#
-# def complete(request):
-#     """
-#     Receive user from Open Humans. Store data, start data upload task.
-#     """
-#     logger.debug("Received user returning from Open Humans.")
-#
-#     login_member(request)
-#     if not request.user.is_authenticated:
-#         logger.debug('Invalid code exchange. User returned to start page.')
-#         return redirect('/')
-#     else:
-#         return redirect('overview')
 
 
 def logout_user(request):
